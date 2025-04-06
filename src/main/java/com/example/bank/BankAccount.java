@@ -52,6 +52,14 @@ public class BankAccount implements BankInterface {
         return loanManager;
     }
 
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+
     @Override
     public void deposit(double amount, String description) throws SecurityException {
         lock.lock();
@@ -93,14 +101,15 @@ public class BankAccount implements BankInterface {
     @Override
     public void transferBetweenAccounts(String targetProvider, double amount) throws Exception {
         lock.lock();
- try {
-            if (isLocked) throw new SecurityException("Account is locked");
+        try {
+            if (isLocked)
+                throw new SecurityException("Account is locked");
             BankAccount target = linkedAccounts.stream()
-                .filter(acc -> acc.getProvider().equals(targetProvider))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Target account not found"));
+                    .filter(acc -> acc.getProvider().equals(targetProvider))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("Target account not found"));
             this.withdraw(amount, "Transfer to " + targetProvider);
-            target.deposit(amount GIS, "Transfer from " + this.provider);
+            target.deposit(amount, "Transfer from " + this.provider);
         } finally {
             lock.unlock();
         }
@@ -137,7 +146,8 @@ public class BankAccount implements BankInterface {
         return false;
     }
 
-    public JSONObject serialize() {
+    @Override
+    public JSONObject seriliaze() {
         lock.lock();
         try {
             JSONObject json = new JSONObject();
@@ -145,8 +155,8 @@ public class BankAccount implements BankInterface {
             json.put("savings", savings);
             json.put("accountName", accountName);
             json.put("provider", provider);
-            boolean autoSavingsPercent;
-            json.put("autoSavingsPercent", autoSavingsPercent);
+            // boolean autoSavingPercent;
+            json.put("autoSavingsPercent", autoSavingPercent);
             json.put("isLocked", isLocked);
 
             JSONArray transactionsArray = new JSONArray();
@@ -165,7 +175,11 @@ public class BankAccount implements BankInterface {
             }
             json.put("linkedAccounts", linkedArray);
 
-            json.put("loanManager", loanManager.serialize());
+            if (this.loanManager != null) {
+                json.put("loanManager", this.loanManager.serialize());
+            } else {
+                json.put("loanManager", JSONObject.NULL);
+            }
             return json;
         } finally {
             lock.unlock();
@@ -173,8 +187,9 @@ public class BankAccount implements BankInterface {
     }
 
     public static BankAccount deserialize(JSONObject json) {
-        // Similar to previous deserialize method
-        // Omitted for brevity, but same logic applies
-        return null; // Replace with full implementation
-    }
+        return new BankAccount(
+                json.getDouble("initialAmount"),
+                json.getString("accountName"));
+    }
+
 }

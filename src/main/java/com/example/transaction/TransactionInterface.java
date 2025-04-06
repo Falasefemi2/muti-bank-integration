@@ -1,5 +1,7 @@
 package com.example.transaction;
 
-public interface TransactionInterface {
+import org.json.JSONObject;
 
+public interface TransactionInterface {
+    JSONObject serialize();
 }
