@@ -10,4 +10,13 @@ The system is designed with a focus on object-oriented principles, thread safety
 
 # Core Features
 
-markdown\n1. Multi-Bank Account Management: Link and manage accounts from multiple financial institutions\n 1. Consolidated Financial View: View balances and transactions across all linked accounts\n 2. Inter-Account Transfers: Transfer funds between accounts at different institutions\n 3. Transaction History: Track and search transactions across all accounts\n 4. Loan Management: Apply for and manage loans with different terms and rates\n 5. Security Features: Account locking, authentication, and access control\n 6. Auto-Savings: Automatic savings allocation during deposits\n 7. AI-Powered Services: Fraud detection, budget analysis, and financial insights\n 8. Currency Conversion: Convert amounts between different currencies\n 9. Thread-Safe Operations: Safely handle concurrent financial transactions\n } ]
+    - Multi-Bank Account Management: Link and manage accounts from multiple financial institutions
+    - Consolidated Financial View: View balances and transactions across all linked accounts
+    - Inter-Account Transfers: Transfer funds between accounts at different institutions
+    - Transaction History: Track and search transactions across all accounts
+    - Loan Management: Apply for and manage loans with different terms and rates
+    - Security Features: Account locking, authentication, and access control
+    - Auto-Savings: Automatic savings allocation during deposits
+    - AI-Powered Services: Fraud detection, budget analysis, and financial insights
+    - Currency Conversion: Convert amounts between different currencies
+    - Thread-Safe Operations: Safely handle concurrent financial transactions
