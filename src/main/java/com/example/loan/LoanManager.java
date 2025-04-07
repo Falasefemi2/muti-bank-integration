@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import com.example.bank.BankAccount;
 
 public class LoanManager implements LoanInterface {
-    private BankAccount account;
+    private final BankAccount account;
     private double loanBalance;
 
     public LoanManager(BankAccount account) {

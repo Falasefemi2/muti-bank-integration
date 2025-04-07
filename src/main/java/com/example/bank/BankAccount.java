@@ -17,10 +17,10 @@ public class BankAccount implements BankInterface {
     private String provider;
     private double autoSavingPercent = 0.05;
     private boolean isLocked = false;
-    private List<BankAccount> linkedAccounts;
-    private List<Transaction> transactionHistory;
-    private LoanManager loanManager;
-    private ReentrantLock lock;
+    private final List<BankAccount> linkedAccounts;
+    private final List<Transaction> transactionHistory;
+    private final LoanManager loanManager;
+    private final ReentrantLock lock;
 
     // Constructor
     public BankAccount(double initialAmount, String accountName) {
@@ -28,7 +28,7 @@ public class BankAccount implements BankInterface {
         this.accountName = accountName;
         this.linkedAccounts = new ArrayList<>();
         this.transactionHistory = new ArrayList<>();
-        // this.loanManager = new LoanManager(this);
+        this.loanManager = new LoanManager(this);
         this.lock = new ReentrantLock();
     }
 
@@ -186,17 +186,15 @@ public class BankAccount implements BankInterface {
         }
     }
 
-    // Removed duplicate deserialize method to resolve the error.
     public static BankAccount deserialize(JSONObject json) {
         BankAccount acc = new BankAccount(
-                json.getDouble("balance"), // use "balance", not "initialAmount"
+                json.getDouble("balance"),
                 json.getString("accountName"));
         acc.savings = json.getDouble("savings");
         acc.provider = json.getString("provider");
         acc.autoSavingPercent = json.getDouble("autoSavingsPercent");
         acc.isLocked = json.getBoolean("isLocked");
 
-        // You can also restore transactionHistory, linkedAccounts, etc.
 
         return acc;
     }

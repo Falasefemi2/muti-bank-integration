@@ -7,6 +7,7 @@ import com.example.ai.Ai;
 import com.example.ai.AiService;
 import com.example.bank.BankAccount;
 import com.example.bank.BankService;
+import com.example.loan.LoanManager;
 import com.example.transaction.Transaction;
 
 public class Main {
