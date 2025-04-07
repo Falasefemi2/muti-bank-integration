@@ -186,10 +186,19 @@ public class BankAccount implements BankInterface {
         }
     }
 
+    // Removed duplicate deserialize method to resolve the error.
     public static BankAccount deserialize(JSONObject json) {
-        return new BankAccount(
-                json.getDouble("initialAmount"),
+        BankAccount acc = new BankAccount(
+                json.getDouble("balance"), // use "balance", not "initialAmount"
                 json.getString("accountName"));
+        acc.savings = json.getDouble("savings");
+        acc.provider = json.getString("provider");
+        acc.autoSavingPercent = json.getDouble("autoSavingsPercent");
+        acc.isLocked = json.getBoolean("isLocked");
+
+        // You can also restore transactionHistory, linkedAccounts, etc.
+
+        return acc;
     }
 
 }

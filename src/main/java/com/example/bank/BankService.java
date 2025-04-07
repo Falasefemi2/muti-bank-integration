@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class BankService {
@@ -31,16 +30,13 @@ public class BankService {
             while ((line = reader.readLine()) != null) {
                 jsonString.append(line);
             }
-            JSONArray jsonArray = new JSONArray(jsonString.toString());
 
-            // Assuming the file contains a single account or the first account is needed
-            if (jsonArray.length() > 0) {
-                JSONObject obj = jsonArray.getJSONObject(0);
-                return BankAccount.deserialize(obj); // Deserialize the first account
-            }
+            JSONObject obj = new JSONObject(jsonString.toString());
+            return BankAccount.deserialize(obj); // Just one account
         } catch (Exception e) {
             System.out.println("Error loading file: " + e.getMessage());
         }
-        return null; // Return null if no account is found or an error occurs
+        return null;
     }
+
 }
