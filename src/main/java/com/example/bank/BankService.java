@@ -32,7 +32,7 @@ public class BankService {
             }
 
             JSONObject obj = new JSONObject(jsonString.toString());
-            return BankAccount.deserialize(obj); // Just one account
+            return BankAccount.deserialize(obj);
         } catch (Exception e) {
             System.out.println("Error loading file: " + e.getMessage());
         }

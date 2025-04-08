@@ -18,7 +18,6 @@ The system is designed with a focus on object-oriented principles, thread safety
     - Security Features: Account locking, authentication, and access control
     - Auto-Savings: Automatic savings allocation during deposits
     - AI-Powered Services: Fraud detection, budget analysis, and financial insights
-    - Currency Conversion: Convert amounts between different currencies
     - Thread-Safe Operations: Safely handle concurrent financial transactions
 
 # Key Components

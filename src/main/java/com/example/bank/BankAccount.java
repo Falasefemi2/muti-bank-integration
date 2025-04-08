@@ -155,7 +155,6 @@ public class BankAccount implements BankInterface {
             json.put("savings", savings);
             json.put("accountName", accountName);
             json.put("provider", provider);
-            // boolean autoSavingPercent;
             json.put("autoSavingsPercent", autoSavingPercent);
             json.put("isLocked", isLocked);
 
@@ -194,7 +193,6 @@ public class BankAccount implements BankInterface {
         acc.provider = json.getString("provider");
         acc.autoSavingPercent = json.getDouble("autoSavingsPercent");
         acc.isLocked = json.getBoolean("isLocked");
-
 
         return acc;
     }
