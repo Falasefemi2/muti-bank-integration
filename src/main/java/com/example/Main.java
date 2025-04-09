@@ -9,6 +9,7 @@ import com.example.ai.Ai;
 import com.example.ai.AiService;
 import com.example.bank.BankAccount;
 import com.example.bank.BankService;
+import com.example.loan.LoanManager;
 import com.example.transaction.Transaction;
 
 public class Main {
@@ -19,7 +20,7 @@ public class Main {
         BankAccount acc1 = new BankAccount(1000, "Falase Femi");
         acc1.setProvider("GTBank");
 
-        BankAccount acc2 = new BankAccount(500, "falase emma");
+        BankAccount acc2 = new BankAccount(500, "falase Femi");
         acc2.setProvider("AccessBank");
 
         // 2. Link account
@@ -40,7 +41,14 @@ public class Main {
             logger.log(Level.INFO, "Transfer successful");
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Transfer failed: {0}", e.getMessage());
+        }
 
+        // Transfer from acc2 to acc1
+        try {
+            acc2.transferBetweenAccounts("GTBank", 100);
+            logger.log(Level.INFO, "Transfer successful");
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Transfer failed: {0}", e.getMessage());
         }
 
         logger.log(Level.INFO, "Acc1 new balance: {0}", acc1.getBalance());
@@ -101,6 +109,11 @@ public class Main {
         } else {
             logger.log(Level.INFO, "Transaction is safe.");
         }
+
+        // Borrow loan
+        LoanManager loanManager = new LoanManager(acc1);
+        loanManager.borrow(2000, "Yearly");
+        loanManager.repayLoan(2000);
 
     }
 }

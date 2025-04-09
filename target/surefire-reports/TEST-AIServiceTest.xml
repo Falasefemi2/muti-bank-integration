@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AIServiceTest" time="0.191" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AIServiceTest" time="0.253" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\FEMI\AppData\Local\Temp\surefire6492496295328181440\surefirebooter-20250408152250084_3.jar C:\Users\FEMI\AppData\Local\Temp\surefire6492496295328181440 2025-04-08T15-22-49_568-jvmRun1 surefire-20250408152250084_1tmp surefire_0-20250408152250084_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\FEMI\AppData\Local\Temp\surefire6842893252332579895\surefirebooter-20250409034411486_3.jar C:\Users\FEMI\AppData\Local\Temp\surefire6842893252332579895 2025-04-09T03-44-11_065-jvmRun1 surefire-20250409034411486_1tmp surefire_0-20250409034411486_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="AIServiceTest#testSmartBudgeting"/>
+    <property name="test" value="AIServiceTest"/>
     <property name="surefire.test.class.path" value="C:\Users\FEMI\muti-bank-integration\target\test-classes;C:\Users\FEMI\muti-bank-integration\target\classes;C:\Users\FEMI\.m2\repository\org\json\json\20250107\json-20250107.jar;C:\Users\FEMI\.m2\repository\org\junit\platform\junit-platform-launcher\1.12.1\junit-platform-launcher-1.12.1.jar;C:\Users\FEMI\.m2\repository\org\junit\platform\junit-platform-engine\1.12.1\junit-platform-engine-1.12.1.jar;C:\Users\FEMI\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\FEMI\.m2\repository\org\junit\platform\junit-platform-commons\1.12.1\junit-platform-commons-1.12.1.jar;C:\Users\FEMI\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\FEMI\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.12.1\junit-jupiter-engine-5.12.1.jar;C:\Users\FEMI\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.12.1\junit-jupiter-api-5.12.1.jar;C:\Users\FEMI\.m2\repository\org\junit\vintage\junit-vintage-engine\5.12.1\junit-vintage-engine-5.12.1.jar;C:\Users\FEMI\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\FEMI\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\FEMI"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\FEMI\AppData\Local\Temp\surefire6492496295328181440\surefirebooter-20250408152250084_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\FEMI\AppData\Local\Temp\surefire6842893252332579895\surefirebooter-20250409034411486_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.2+7-58"/>
@@ -42,7 +42,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="maven.ext.class.path" value="C:\Users\FEMI\.vscode\extensions\oracle.oracle-java-23.1.0\nbcode\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="maven.ext.class.path" value="C:\Users\FEMI\.cursor\extensions\oracle.oracle-java-23.1.0\nbcode\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="localRepository" value="C:\Users\FEMI\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\FEMI\AppData\Local\Temp\"/>
@@ -60,9 +60,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testSmartBudgeting" classname="AIServiceTest" time="0.114">
+  <testcase name="testSmartBudgeting" classname="AIServiceTest" time="0.115">
     <system-out><![CDATA[setUp() called, aiService initialized: true
 Running testSmartBudgeting, aiService is null? false
+]]></system-out>
+  </testcase>
+  <testcase name="testFraudDection" classname="AIServiceTest" time="0.045">
+    <system-out><![CDATA[setUp() called, aiService initialized: true
+Running testFraudDection, aiService is null? false
 ]]></system-out>
   </testcase>
 </testsuite>
